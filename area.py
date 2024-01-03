@@ -17,4 +17,3 @@ obj.getlength(l)
 obj.getbreadth(b)
 obj.areas()
 
-print("hai")
