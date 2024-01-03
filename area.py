@@ -16,3 +16,5 @@ b=int(input("enter the breadth"))
 obj.getlength(l)
 obj.getbreadth(b)
 obj.areas()
+
+print("hai")
