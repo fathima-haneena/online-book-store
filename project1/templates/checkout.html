@@ -1,0 +1,335 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+    
+
+
+
+
+   
+        <!-- End: Header Section -->
+        
+        <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Checkout</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{%  url 'index' %}">Home</a></li>
+                        <li>Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+        <!-- Start: Cart Checkout Section -->
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="checkout-main">
+                        <div class="container">
+                            <div class="row">
+                                <div class="cart-head">
+                                    
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12">
+                                   {% if datas %}
+                                   
+                                    <article class="page type-page status-publish hentry">
+                                        <div class="entry-content">
+                                            <div class="woocommerce">
+                                                <form action="" class="checkout woocommerce-checkout" method="post" name="checkout">
+                                                    <div class="row">
+                                                      
+                                                        <div class="col-sm-4">
+                                                            <h2>Your order</h2>
+                                                            <span class="underline left"></span>
+                                                            <div class="woocommerce-checkout-review-order" id="order_review">
+                                                                <table class="shop_table woocommerce-checkout-review-order-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="product-name">Product</th>
+                                                                            <th class="product-total">Total</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="cart_item">
+                                                                            
+                                                                            <td class="product-total">
+                                                                                <span class="woocommerce-Price-amount amount"></span>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="cart_item">
+                                                                            <td class="product-name">
+                                                                                <span class="woocommerce-product-amount">{{ datas.title }}</span>
+                                                                            </td>
+                                                                            <td class="product-total">
+                                                                                <span class="woocommerce-Price-amount amount">{{datas.price }}</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tfoot>
+                                                                        <tr class="cart-subtotal">
+                                                                            <td>Cart Sub Total</td>
+                                                                            <td>{{datas.price }}</td>
+                                                                        </tr>
+                                                                        
+                                                                        <tr class="cart-shipping">
+                                                                            <td>Shipping</td>
+                                                                            <td><strong class="shipping-amount">Free</strong></td>
+                                                                        </tr>
+                                                                        <tr class="order-total">
+                                                                            <th>Order Totals</th>
+                                                                            <th>{{datas.price}}</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    {% endif %}
+                                                    <div class="row">
+                                                        <div id="customer_details">
+                                                            <div class="col-xs-12 col-sm-6">
+                                                                <div class="woocommerce-billing-fields">
+                                                                    <h2>Billing Address</h2>
+                                                                    <span class="underline left"></span>
+                                                                    <div class="row">
+                                                                        <div class="billing-address-box">
+                                                                            <div class="col-xs-12 col-sm-6">
+                                                                                {% csrf_token %}
+                                                                                <div class="mb-3" >
+                                                                                {{ form.as_p }}
+                                                                              </div>
+                                                                            </div>
+                                                                        </div>
+                                                                            <div class="col-xs-12 col-sm-12">
+                                                                                <div class="radio">
+                                                                                    <input id="bill-address" type="radio" value="bill-address" name="bill-address">
+                                                                                    <label for="bill-address">Ship Items To The Above Billing Address</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="clear"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-6">
+                                                                <div class="woocommerce-checkout-payment" id="payment">
+                                                                    <h2>Payment Method</h2>
+                                                                    <span class="underline left"></span>
+                                                                    <div class="form-row place-order">
+                                                                        <div class="radio">
+                                                                            <input id="ship-address" type="radio" value="ship-address" name="ship-address">
+                                                                            <label for="ship-address"><strong>Direct Bank Transfer</strong>
+                                                                                Make your payment directly into our bank account. Please use your Order ID as the payment refercene. Your order wont be shipped until the funds have cleard in our account.
+                                                                            </label>
+                                                                            <input id="cash-delivery" type="radio" value="cash-delivery" name="ship-address">
+                                                                            <label for="cash-delivery"><strong>Cash On Delivery</strong></label>
+                                                                            <input id="paypal" type="radio" value="paypal" name="ship-address">
+                                                                            <label for="paypal"><strong>Paypal</strong>
+                                                                                <span><a href="#"><img src="{% static 'images/cart/payment-discover.jpg' %}" alt=""></a></span>
+                                                                                <span><a href="#"><img src="{% static 'cart/payment-american-express.jpg' %}" alt=""></a></span>
+                                                                                <span><a href="#"><img src="{% static 'images/cart/payment-paypal.jpg' %}" alt=""></a></span>
+                                                                                <span><a href="#"><img src="{% static 'images/cart/payment-mastercard.jpg' %}" alt=""></a></span>
+                                                                                <span><a href="#"><img src="{% static 'images/cart/payment-visa.jpg' %}" alt=""></a></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt btn btn-default" onclick="fun()">	
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                     
+       
+                                                    </div>
+                                                
+                                                </form> 
+                                              </div>
+                                        </div>
+                                        </div><!-- .entry-content -->
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- End: Cart Checkout Section -->
+
+        <!-- Start: Social Network -->
+        <section class="social-network section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <h2 class="section-title">Follow Us</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul>
+                    <li>
+                        <a class="facebook" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="rss" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Social Network -->
+
+        <!-- Start: Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div id="footer-widgets">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 widget-container">
+                            <div id="text-2" class="widget widget_text">
+                                <h3 class="footer-widget-title">About Libraria</h3>
+                                <span class="underline left"></span>
+                                <div class="textwidget">
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking.
+                                </div>
+                                <address>
+                                    <div class="info">
+                                        <i class="fa fa-location-arrow"></i>
+                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-envelope"></i>
+                                        <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-phone"></i>
+                                        <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <div id="nav_menu-2" class="widget widget_nav_menu">
+                                <h3 class="footer-widget-title">Quick Links</h3>
+                                <span class="underline left"></span>
+                                <div class="menu-quick-links-container">
+                                    <ul id="menu-quick-links" class="menu">
+                                        <li><a href="#">Library News</a></li>
+                                        <li><a href="#">History</a></li>
+                                        <li><a href="#">Meet Our Staff</a></li>
+                                        <li><a href="#">Board of Trustees</a></li>
+                                        <li><a href="#">Budget</a></li>
+                                        <li><a href="#">Annual Report</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <div id="text-4" class="widget widget_text">
+                                <h3 class="footer-widget-title">Timing</h3>
+                                <span class="underline left"></span>
+                                <div class="timming-text-widget">
+                                    <time datetime="2017-02-13">Mon - Thu: 9 am - 9 pm</time>
+                                    <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
+                                    <time datetime="2017-02-13">Sat: 9 am - 5 pm</time>
+                                    <time datetime="2017-02-13">Sun: 1 pm - 6 pm</time>
+                                    <ul>
+                                        <li><a href="#">Closings</a></li>
+                                        <li><a href="#">Branches</a></li>
+                                    </ul>
+                                </div>
+                            </div>			
+                        </div>
+                        <div class="col-md-4 col-sm-6 widget-container">
+                            <div class="widget twitter-widget">
+                                <h3 class="footer-widget-title">Latest Tweets</h3>
+                                <span class="underline left"></span>
+                                <div id="twitter-feed">
+                                    <ul>
+                                        <li>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>			
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-text col-md-3">
+                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                        </div>
+                        <div class="col-md-9 pull-right">
+                            <ul>
+                                <li><a href="index-2.html">Home</a></li>
+                                <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
+                                <li><a href="news-events-list-view.html">News &amp; Events</a></li>
+                                <li><a href="#">Kids &amp; Teens</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="#">Research</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function fun() {
+              alert("order confirmed successfully");
+            }
+            </script>
+        <!-- End: Footer -->
+        {% endblock %}
+        <!-- jQuery Latest Version 1.x -->
+        
+      

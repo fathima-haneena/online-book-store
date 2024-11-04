@@ -1,0 +1,74 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-banner services-banner">
+    <div class="container">
+        <div class="banner-header">
+            <h2>Contact Us</h2>
+            <span class="underline center"></span>
+            <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{%  url 'index' %}">Home</a></li>
+                <li>order details</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<body>
+    <div class="container">
+      
+        
+        <hr>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    {% if order %}
+                    {% for i in order %}
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">order details</th>
+                        
+                        
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                       
+                      <tr>
+                        <th scope="col"></th>
+                        <td>{{ i.name }}</td>
+                        <th scope="col"></th>
+                        <td>{{ i.email }}</td>
+                        <th scope="col"></th>
+                        <td>{{ i.age }}</td>
+                        <th scope="col"></th>
+                        <td>{{ i.address}}</td>
+                       
+                        
+                        
+                         
+                      </tr>
+                      {% endfor %}
+                      
+                      {% endif %}
+                      
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+    
+    
+    </body>
+ </html>
+ 
+
+{% endblock %}
+
+</html>

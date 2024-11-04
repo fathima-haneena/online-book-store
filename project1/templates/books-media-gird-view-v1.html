@@ -1,0 +1,66 @@
+
+                                    {% load static %}
+                                    <!DOCTYPE html>
+                                    <html lang="en">
+                                    <head>
+                                        <meta charset="UTF-8">
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <title>Library Website</title>
+                                    
+                                        <!-- Bootstrap CSS -->
+                                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                                    
+                                        <!-- Custom CSS -->
+                                        <link rel="stylesheet" href="{% static '/css/styles.css'%}">
+                                    </head>
+                                    <style>li:hover{
+                                        background-color: gray;
+                                        border-radius: 10px;
+                                    }</style>
+                                    <body>
+                                    
+                                
+                                    <!--adding services-->
+                                    
+                                    
+                                    
+                                    <!-- Header Section -->
+                                    <header class="jumbotron text-center">
+                                        <h1 style="color: blueviolet;">Book reservation</h1>
+                                        <p style="color: blueviolet;"><i>Your source for knowledge and discovery</i></p>
+                                    </header>
+                                    
+                                    <!-- Content Section -->
+                                    <div class="container text-center">
+                                        {% if books %}
+                                    {% for i in books %}
+                                    <div class="card text-center" style="width: 15rem;display: inline-block;">
+                                        <a href="{% url 'checkout' id=b.id %}" class="btn btn-primary">Book
+                                        <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{i.title}}</h5>
+                                          <h6 class="card-title">{{i.author}}</h6>
+                                          <p class="card-text">{{i.price}}</p>
+                                     
+                                          <br>
+                                        </div>
+                                      </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                </a>
+                                    </div>
+                                    <!-- Footer Section -->
+                                    <footer class="bg-dark text-light text-center py-3">
+                                        &copy; 2023 Central Library 
+                                    </footer>
+                                    
+                                    <!-- Bootstrap JS and jQuery -->
+                                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                                    </body>
+                                    </html>
+                        <!-- Start: Staff Picks -->
+                      
+                        <!-- End: Staff Picks -->
+                 

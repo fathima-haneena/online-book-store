@@ -1,0 +1,419 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Start: Page Banner -->
+        <section class="page-banner services-banner">
+            <div class="container">
+                <div class="banner-header">
+                    <h2>Books & Media Listing</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                </div>
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index-2.html">Home</a></li>
+                        <li>Books & Media</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- End: Page Banner -->
+
+        <!-- Start: Products Section -->
+        <div id="content" class="site-content">
+           
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="booksmedia-detail-main">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Start: Search Section -->
+                                <section class="search-filters">
+                                    <div class="container">
+                                        <div class="filter-box">
+                                            <h3>What are you looking for at the library?</h3>
+                                            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="keywords">Search by Keyword</label>
+                                                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="form-group">
+                                                        <select name="catalog" id="catalog" class="form-control">
+                                                            <option>Search the Catalog</option>
+                                                            <option>Catalog 01</option>
+                                                            <option>Catalog 02</option>
+                                                            <option>Catalog 03</option>
+                                                            <option>Catalog 04</option>
+                                                            <option>Catalog 05</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="form-group">
+                                                        <select name="category" id="category" class="form-control">
+                                                            <option>All Categories</option>
+                                                            <option>Category 01</option>
+                                                            <option>Category 02</option>
+                                                            <option>Category 03</option>
+                                                            <option>Category 04</option>
+                                                            <option>Category 05</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="submit" value="Search">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- End: Search Section -->
+                            </div>
+                            {% if data %}
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-9 col-md-push-3">
+                                    <div class="booksmedia-detail-box">
+                                        <div class="single-book-box">                                                
+                                            <div class="post-thumbnail">
+                                                <div class="book-list-icon yellow-icon"></div>
+                                                <img alt="Book" src="{{ data.image.url }}">                                                    
+                                            </div>
+                                            <div class="post-detail">
+                                                <div class="books-social-sharing">
+                                                    <ul>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
+                                                        <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="optional-links">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like">
+                                                                <i class="fa fa-heart"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
+                                                                <i class="fa fa-search"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                                <i class="fa fa-print"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <header class="entry-header">
+                                                    <h2 class="entry-title">{{data.title}}</h2>
+                                                    <ul>
+                                                        <li><strong>Author:</strong> {{data.author}}</li>
+                                                        <li><strong>ISBN:</strong>{{data.bookid}}</li>
+                                                        <p><strong>price:</strong>{{  data.price }}</p>
+                                                        <li>
+                                                            <div class="rating">
+                                                                <strong>Rating:</strong> 
+                                                                <span>☆</span>
+                                                                <span>☆</span>
+                                                                <span>☆</span>
+                                                                <span>☆</span>
+                                                                <span>☆</span>
+                                                            </div>
+                                                        </li>
+                                                        <li><strong>Edition:</strong> First edition</li>
+                                                        <li><strong>Publisher:</strong> New York : Shaye Areheart Books, c2008</li>
+                                                    </ul>
+                                                </header>
+                                                <div class="entry-content post-buttons">
+                                                    <a href="#." class="btn btn-dark-gray">Place a Hold</a>
+                                                    <a href="#." class="btn btn-dark-gray">View sample</a>
+                                                    <a href="#." class="btn btn-dark-gray">Find Similar Titles</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p><strong>Summary:</strong> {{  data.description }}
+                                        <ul class="detail-page-listing">
+                                            <li><strong>Length:</strong> 518 pages.</li>
+                                            <li><strong>Format:</strong> DVD</li>
+                                            <li><strong>Language Note:</strong> Icelandic dialogue; English subtitles.</li>
+                                            <li><strong>Genre :</strong> Feature films, Fiction films, Drama</li>
+                                            <li><strong>Topics:</strong> Friendship, Bullies, Pranks, School</li>
+                                            <li><strong>Time Period:</strong> 2000s -- 21st century</li>
+                                        </ul>
+                                        <div class="table-tabs" id="responsiveTabs">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><b class="arrow-up"></b><a data-toggle="tab" href="#sectionA">Copies: 05</a></li>
+                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionB">Reviews (12)</a></li>
+                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionC">Table of Contents</a></li>
+                                                <li><b class="arrow-up"></b><a data-toggle="tab" href="#sectionD">Novelist Recommendations</a></li> 
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div id="sectionA" class="tab-pane fade in active">
+                                                    <table class="table table-bordered">
+                                                       
+                                                    </table>
+                                                </div>
+                                                <div id="sectionB" class="tab-pane fade in">
+                                                    <h5>Lorem Ipsum Dolor</h5>
+                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                </div>
+                                                <div id="sectionC" class="tab-pane fade in">
+                                                    <h5>Lorem Ipsum Dolor</h5>
+                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                </div>
+                                                <div id="sectionD" class="tab-pane fade in">
+                                                    <h5>Lorem Ipsum Dolor</h5>
+                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                </div>                                                    
+                                                <div id="sectionE" class="tab-pane fade in">
+                                                    <h5>Lorem Ipsum Dolor</h5>
+                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                </div>                                                    
+                                                <div id="sectionF" class="tab-pane fade in">
+                                                    <h5>Lorem Ipsum Dolor</h5>
+                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+                                                </div>
+                                            </div>
+                                            <button type="submit"><a href="{% url 'cart1'  %}">Add To Cart</a></button>
+                                            <button type="submit"><a href="{% url 'checkout' id=data.id %}">buynow</a></button>
+                                            
+                                            <div class="comments-container">
+                                                <h2>Comments</h2>
+                                                <div id="comments-list"></div>
+                                                <form id="comment-form" action="">
+                                                  <textarea id="comment-text" placeholder="Write your comment here"></textarea>
+                                                  <button type="submit">Submit</button>
+                                                </form>
+                                              </div>
+                                            
+                                              <script src="{% static '/js/scripts.js' %}"></script>
+
+                                        </div>
+                                        
+                                         
+                                        
+                                        
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                          
+
+
+                            
+                         {% endif %}
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        
+        <!-- End: Products Section -->
+
+        <!-- Start: Social Network -->
+        <section class="social-network section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <h2 class="section-title">Follow Us</h2>
+                    <span class="underline center"></span>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul>
+                    <li>
+                        <a class="facebook" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="rss" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linkedin" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="#" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- End: Social Network -->
+
+        <!-- Start: Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div id="footer-widgets">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 widget-container">
+                            <div id="text-2" class="widget widget_text">
+                                <h3 class="footer-widget-title">About Libraria</h3>
+                                <span class="underline left"></span>
+                                <div class="textwidget">
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking.
+                                </div>
+                                <address>
+                                    <div class="info">
+                                        <i class="fa fa-location-arrow"></i>
+                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-envelope"></i>
+                                        <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-phone"></i>
+                                        <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <div id="nav_menu-2" class="widget widget_nav_menu">
+                                <h3 class="footer-widget-title">Quick Links</h3>
+                                <span class="underline left"></span>
+                                <div class="menu-quick-links-container">
+                                    <ul id="menu-quick-links" class="menu">
+                                        <li><a href="#">Library News</a></li>
+                                        <li><a href="#">History</a></li>
+                                        <li><a href="#">Meet Our Staff</a></li>
+                                        <li><a href="#">Board of Trustees</a></li>
+                                        <li><a href="#">Budget</a></li>
+                                        <li><a href="#">Annual Report</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
+                        <div class="col-md-2 col-sm-6 widget-container">
+                            <div id="text-4" class="widget widget_text">
+                                <h3 class="footer-widget-title">Timing</h3>
+                                <span class="underline left"></span>
+                                <div class="timming-text-widget">
+                                    <time datetime="2017-02-13">Mon - Thu: 9 am - 9 pm</time>
+                                    <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
+                                    <time datetime="2017-02-13">Sat: 9 am - 5 pm</time>
+                                    <time datetime="2017-02-13">Sun: 1 pm - 6 pm</time>
+                                    <ul>
+                                        <li><a href="#">Closings</a></li>
+                                        <li><a href="#">Branches</a></li>
+                                    </ul>
+                                </div>
+                            </div>			
+                        </div>
+                        <div class="col-md-4 col-sm-6 widget-container">
+                            <div class="widget twitter-widget">
+                                <h3 class="footer-widget-title">Latest Tweets</h3>
+                                <span class="underline left"></span>
+                                <div id="twitter-feed">
+                                    <ul>
+                                        <li>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>			
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-text col-md-3">
+                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                        </div>
+                        <div class="col-md-9 pull-right">
+                            <ul>
+                                <li><a href="index-2.html">Home</a></li>
+                                <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
+                                <li><a href="news-events-list-view.html">News &amp; Events</a></li>
+                                <li><a href="#">Kids &amp; Teens</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="#">Research</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+        
+      
+            $(document).ready(function(){
+              $('#commnt_button').on('click', function(e){
+                  e.preventDefault();
+                  // Your form submission logic here
+                  $('#coment_box').show();
+              });
+            });
+    
+            document.querySelector('.submit-btn').addEventListener('click', function() {
+              var commentArea = document.querySelector('.comment-area');
+              var commentSection = document.querySelector('.comment-section');
+              var newComment = document.createElement('div');
+              newComment.textContent = commentArea.value;
+              newComment.className = 'comment';
+              commentSection.appendChild(newComment);
+             
+            });
+        
+        
+   </script>
+    
+       
+    
+      
+   {% endblock %}
